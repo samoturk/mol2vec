@@ -1,7 +1,7 @@
 # Mol2vec
 [Mol2vec](https://chemrxiv.org/articles/Mol2vec_Unsupervised_Machine_Learning_Approach_with_Chemical_Intuition/5513581) - an unsupervised machine learning approach to learn vector representations of molecular substructures
 
-
+[![Documentation Status](https://readthedocs.org/projects/mol2vec/badge/?version=latest)](http://mol2vec.readthedocs.org/en/latest/)
 
 ## Requirements
 * **Python 3** (Python 2.x) is [not supported](http://www.python3statement.org/)
