@@ -20,6 +20,8 @@
 `pip install git+https://github.com/samoturk/mol2vec`
 
 #### Documentation
+Read the documentation on [Read the Docs](http://mol2vec.readthedocs.io/en/latest/).
+
 To build the documentation install `sphinx`, `numpydoc` and `sphinx_rtd_theme` and then run `make html` in `docs` directory.
 
 ## Usage
