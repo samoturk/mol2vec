@@ -16,6 +16,8 @@ Installation
 
     pip install git+https://github.com/samoturk/mol2vec
 
+.. note:: RDKit has to be installed manually and is not automatically installed by pip as a dependency.
+
 Requirements
 ````````````
 * Python 3 (Python 2.x) is `not supported <http://www.python3statement.org/>`_
@@ -32,8 +34,11 @@ Requirements
 
 Building the documentation
 ``````````````````````````
-To build the documentation install `sphinx`, `numpydoc` and `sphinx_rtd_theme` and then run `make html` in docs
-directory.
+To build the documentation install `sphinx`, `numpydoc` and `sphinx_rtd_theme` and then run in the docs directory:
+
+.. code-block:: bash
+
+    make html
 
 Usage
 =====
