@@ -29,25 +29,32 @@ def do_featurize(args):
 def get_parser():
     parser = argparse.ArgumentParser(
         description="""\
-Mol2vec is an unsupervised machine learning approach to learn vector representations of molecular substructures.
-Command line application has subcommands to prepare a corpus from molecular data (SDF or SMILES), train Mol2vec model
-and featurize new samples.
+Mol2vec is an unsupervised machine learning approach to learn vector 
+representations of molecular substructures. Command line application 
+has subcommands to prepare a corpus from molecular data (SDF or SMILES), 
+train Mol2vec model and featurize new samples.
 
     --- Subcommand 'corpus' --- 
 
-    Generates corpus to train Mol2vec model. It generates morgan identifiers (up to selected radius) which represent 
-    words (molecules are sentences). Words are ordered in the sentence according to atom order in canonical SMILES 
-    (generated when generating corpus) and at each atom starting by identifier at radius 0.
-    Corpus subcommand also optionally replaces rare identifiers with selected string (e.g. UNK) which can be later used
-    to represent completely new substructures (i.e. at featurization step). NOTE: It saves the corpus with replaced 
-    uncommon identifiers in separate file with ending "_{selected string to replace uncommon}".  
-    Since this is unsupervised method we recommend using as much molecules as possible (e.g. complete ZINC database).
+    Generates corpus to train Mol2vec model. It generates morgan identifiers 
+    (up to selected radius) which represent words (molecules are sentences). 
+    Words are ordered in the sentence according to atom order in canonical 
+    SMILES (generated when generating corpus) and at each atom starting by 
+    identifier at radius 0. Corpus subcommand also optionally replaces rare 
+    identifiers with selected string (e.g. UNK) which can be later used to 
+    represent completely new substructures (i.e. at featurization step). NOTE: 
+    It saves the corpus with replaced uncommon identifiers in separate file 
+    with ending "_{selected string to replace uncommon}". Since this is 
+    unsupervised method we recommend using as much molecules as possible (e.g. 
+    complete ZINC database).
     
     Performance: 
-        Corpus generation using 20M compounds with replacement of uncommon identifiers takes 6 hours on 4 cores.
+        Corpus generation using 20M compounds with replacement of uncommon 
+        identifiers takes 6 hours on 4 cores.
     
     Example:
-        To prepare a corpus using radius 1, 4 cores, replace uncommon identifiers that appear <= 3 times with 'UNK' run:
+        To prepare a corpus using radius 1, 4 cores, replace uncommon 
+        identifiers that appear <= 3 times with 'UNK' run:
         mol2vec corpus -i mols.smi -o mols.cp -r 1 -j 4 --uncommon UNK --threshold 3
           
 
@@ -59,20 +66,23 @@ and featurize new samples.
         Training the model on 20M sentences takes ~2 hours on 4 cores.
     
     Example:
-        To train a Mol2vec model on corpus with replaced uncommon identifiers using Skip-gram, window size 10, 
-        generating 300 dimensional vectors and using 4 cores run:
+        To train a Mol2vec model on corpus with replaced uncommon identifiers 
+        using Skip-gram, window size 10, generating 300 dimensional vectors and 
+        using 4 cores run:
         mol2vec train -i mols.cp_UNK -o model.pkl -d 300 -w 10 -m skip-gram --threshold 3 -j 4
     
     
     --- Subcommand 'featurize' ---
 
-    Featurizes new samples using pre-trained Mol2vec model. It saves the result in CSV file with columns for molecule 
-    identifiers, canonical SMILES (generated during featurization) and all potential SD fields from input SDF file and 
-    finally followed by mol2vec-{0 to n-1} where n is dimensionality of embeddings in the model.  
+    Featurizes new samples using pre-trained Mol2vec model. It saves the 
+    result in CSV file with columns for molecule identifiers, canonical 
+    SMILES (generated during featurization) and all potential SD fields from
+    input SDF file and finally followed by mol2vec-{0 to n-1} where n is 
+    dimensionality of embeddings in the model.  
     
     Example:
-        To featurize new samples using pre-trained embeddings and using vector trained on uncommon samples to represent
-        new substructures:
+        To featurize new samples using pre-trained embeddings and using 
+        vector trained on uncommon samples to represent new substructures:
         mol2vec featurize -i new.smi -o new.csv -m model.pkl -r 1 --uncommon UNK
 
 
