@@ -4,7 +4,7 @@
 [![Documentation Status](https://readthedocs.org/projects/mol2vec/badge/?version=latest)](http://mol2vec.readthedocs.org/en/latest/)
 
 ## Requirements
-* **Python 3** (Python 2.x) is [not supported](http://www.python3statement.org/)
+* **Python 3** (Python 2.x is [not supported](http://www.python3statement.org/))
 * [NumPy](http://www.numpy.org/)
 * [matplotlib](https://matplotlib.org/)
 * [seaborn](https://seaborn.pydata.org/)
