@@ -20,7 +20,7 @@ Installation
 
 Requirements
 ````````````
-* Python 3 (Python 2.x) is `not supported <http://www.python3statement.org/>`_
+* Python 3 (Python 2.x is `not supported <http://www.python3statement.org/>`_)
 * `NumPy <http://www.numpy.org/>`_
 * `matplotlib <https://matplotlib.org/>`_
 * `seaborn <https://seaborn.pydata.org/>`_
