@@ -30,7 +30,9 @@ To build the documentation install `sphinx`, `numpydoc` and `sphinx_rtd_theme` a
 from mol2vec import features
 from mol2vec import helpers
 ```
-First line imports functions to generate "sentences" from molecules and train the model, and second line imports functions useful for depictions. Check [examples](https://github.com/samoturk/mol2vec/notebooks) directory for more details.
+First line imports functions to generate "sentences" from molecules and train the model, and second line imports functions useful for depictions. 
+Check [examples](https://github.com/samoturk/mol2vec/examples) directory for more details and [Mol2vec notebooks](https://github.com/samoturk/mol2vec_notebooks) 
+repository for visualisations made to easily run in Binder. [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/samoturk/mol2vec_notebooks/master?filepath=Notebooks%2FExploring_Mol2vec_vectors.ipynb)
 
 ### Command line tool
 Mol2vec is an unsupervised machine learning approach to learn vector representations of molecular substructures.

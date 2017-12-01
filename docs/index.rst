@@ -51,8 +51,9 @@ As python module
     from mol2vec import helpers
 
 First line imports functions to generate “sentences” from molecules and train the model, and second line imports
-functions useful for depictions. Check `examples <https://github.com/samoturk/mol2vec/notebooks>`_ directory for more
-details.
+functions useful for depictions. Check `examples <https://github.com/samoturk/mol2vec/examples>`_ directory for more
+details and `Mol2vec notebooks <https://github.com/samoturk/mol2vec_notebooks>`_ repository for visualisations made to
+easily run in Binder.
 
 Command line application
 ````````````````````````
