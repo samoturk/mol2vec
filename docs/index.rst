@@ -3,7 +3,7 @@
 *********************
 Mol2vec documentation
 *********************
-`Mol2vec <https://chemrxiv.org/articles/Mol2vec_Unsupervised_Machine_Learning_Approach_with_Chemical_Intuition/5513581>`_
+`Mol2vec <http://pubs.acs.org/doi/10.1021/acs.jcim.7b00616>`_
 - an unsupervised machine learning approach to learn vector representations of molecular substructures
 
 .. contents::
@@ -128,13 +128,18 @@ How to cite?
 
 .. code-block:: bib
 
-    @article{Jaeger2017,
-    author = "Sabrina Jaeger and Simone Fulle and Samo Turk",
-    title = "{Mol2vec: Unsupervised Machine Learning Approach with Chemical Intuition}",
-    year = "2017",
-    month = "10",
-    url = "https://chemrxiv.org/articles/Mol2vec_Unsupervised_Machine_Learning_Approach_with_Chemical_Intuition/5513581",
-    doi = "10.26434/chemrxiv.5513581.v1"
+    @article{doi:10.1021/acs.jcim.7b00616,
+    author = {Jaeger, Sabrina and Fulle, Simone and Turk, Samo},
+    title = {Mol2vec: Unsupervised Machine Learning Approach with Chemical Intuition},
+    journal = {Journal of Chemical Information and Modeling},
+    volume = {0},
+    number = {ja},
+    pages = {null},
+    year = {0},
+    doi = {10.1021/acs.jcim.7b00616},
+
+    URL = {http://dx.doi.org/10.1021/acs.jcim.7b00616},
+    eprint = {http://dx.doi.org/10.1021/acs.jcim.7b00616}
     }
 
 .. toctree::
