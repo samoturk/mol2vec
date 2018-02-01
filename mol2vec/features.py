@@ -46,7 +46,7 @@ class MolSentence:
         if type(self.sentence[0]) != str:
             raise TypeError('List with strings expected')
 
-    def __len___(self):
+    def __len__(self):
         return len(self.sentence)
 
     def __str__(self):  # String representation
@@ -123,6 +123,11 @@ def mol2sentence(mol, radius):
 
 def mol2alt_sentence(mol, radius):
     """Same as mol2sentence() expect it only returns the alternating sentence
+    Calculates ECFP (Morgan fingerprint) and returns identifiers of substructures as 'sentence' (string).
+    Returns a tuple with 1) a list with sentence for each radius and 2) a sentence with identifiers from all radii
+    combined.
+    NOTE: Words are ALWAYS reordered according to atom order in the input mol object.
+    NOTE: Due to the way how Morgan FPs are generated, number of identifiers at each radius is smaller
     
     Parameters
     ----------
