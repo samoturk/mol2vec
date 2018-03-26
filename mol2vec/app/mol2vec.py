@@ -1,7 +1,11 @@
 import argparse
 import sys
+import six
 
-from mol2vec import features
+if six.PY2:
+    from .. import features
+else:
+    from mol2vec import features
 
 def do_corpus(args):
     print('Generating corpus file.')
