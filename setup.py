@@ -17,7 +17,7 @@ setup(name='mol2vec',
       author_email='samo.turk@gmail.com, sabrina.jaeger@t-online.de, fulle@bio.mx',
       license='BSD 3-clause',
       packages=find_packages(),
-      install_requires=['numpy', 'gensim', 'tqdm', 'joblib', 'pandas', 'matplotlib', 'IPython', 'seaborn'],
+      install_requires=['numpy', 'gensim', 'tqdm', 'joblib', 'pandas', 'matplotlib', 'IPython', 'seaborn', 'six'],
       zip_safe=False,
       entry_points="""
       [console_scripts]
