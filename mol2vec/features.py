@@ -30,12 +30,14 @@ class DfVec(object):
             raise TypeError('numpy.ndarray expected, got %s' % type(self.vec))
 
     def __str__(self):
-        return "%d dimensional vector" % len(self.vec)
+        return "%s dimensional vector" % str(self.vec.shape)
 
     __repr__ = __str__
 
     def __len__(self):
         return len(self.vec)
+
+    _repr_html_ = __str__
 
 
 class MolSentence:
@@ -66,6 +68,9 @@ class MolSentence:
     def __iter__(self):  # Iterate over words (for word in MolSentence:...)
         for x in self.sentence:
             yield x
+
+    _repr_html_ = __str__
+
 
 
 def mol2sentence(mol, radius):
@@ -291,7 +296,7 @@ def insert_unk(corpus, out_corpus, threshold=3, uncommon='UNK'):
     out_corpus : str
         Outfile corpus file
     threshold : int
-        Radius of morgan fingerprint
+        Number of identifier occurrences to consider it uncommon
     uncommon : str
         String to use to replace uncommon words/identifiers
 
