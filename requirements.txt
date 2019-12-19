@@ -1,0 +1,8 @@
+numpy
+gensim
+tqdm
+joblib
+pandas
+matplotlib
+IPython
+seaborn
