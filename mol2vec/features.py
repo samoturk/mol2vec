@@ -15,6 +15,9 @@ from gensim.models import word2vec
 import timeit
 from joblib import Parallel, delayed
 
+import gensim
+
+GENSIM4 = gensim.__version__ > "4"  # GENSIM4 has some API changes from GENSIM 3
 
 class DfVec(object):
     """
@@ -422,7 +425,10 @@ def sentences2vec(sentences, model, unseen=None):
     -------
     np.array
     """
-    keys = set(model.wv.vocab.keys())
+    if GENSIM4:
+        keys = set(model.wv.key_to_index)
+    else:
+        keys = set(model.wv.vocab.keys())
     vec = []
     if unseen:
         unseen_vec = model.wv.word_vec(unseen)
