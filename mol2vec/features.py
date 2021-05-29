@@ -425,7 +425,7 @@ def sentences2vec(sentences, model, unseen=None):
     -------
     np.array
     """
-   if GENSIM4:
+    if GENSIM4:
         keys = set(model.wv.key_to_index)
     else:
         keys = set(model.wv.vocab.keys())
