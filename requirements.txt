@@ -6,3 +6,4 @@ pandas
 matplotlib
 IPython
 seaborn
+rdkit
