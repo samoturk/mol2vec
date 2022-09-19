@@ -5,15 +5,15 @@ Features - Main Mol2vec Module
 
 """
 
-from tqdm import tqdm
+import timeit
+
 import numpy as np
 import pandas as pd
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem import PandasTools
 from gensim.models import word2vec
-import timeit
 from joblib import Parallel, delayed
+from rdkit import Chem
+from rdkit.Chem import AllChem, PandasTools
+from tqdm import tqdm
 
 
 class DfVec(object):
@@ -422,17 +422,17 @@ def sentences2vec(sentences, model, unseen=None):
     -------
     np.array
     """
-    keys = set(model.wv.vocab.keys())
+    keys = set(model.wv.key_to_index)
     vec = []
     if unseen:
-        unseen_vec = model.wv.word_vec(unseen)
+        unseen_vec = model.wv.get_vector(unseen)
 
     for sentence in sentences:
         if unseen:
-            vec.append(sum([model.wv.word_vec(y) if y in set(sentence) & keys
+            vec.append(sum([model.wv.get_vector(y) if y in set(sentence) & keys
                        else unseen_vec for y in sentence]))
         else:
-            vec.append(sum([model.wv.word_vec(y) for y in sentence 
+            vec.append(sum([model.wv.get_vector(y) for y in sentence 
                             if y in set(sentence) & keys]))
     return np.array(vec)
 
@@ -462,7 +462,7 @@ def featurize(in_file, out_file, model_path, r, uncommon=None):
     word2vec_model = word2vec.Word2Vec.load(model_path)
     if uncommon:
         try:
-            word2vec_model[uncommon]
+            word2vec_model.wv.get_vector(uncommon)
         except KeyError:
             raise KeyError('Selected word for uncommon: %s not in vocabulary' % uncommon)
 
