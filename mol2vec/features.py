@@ -462,7 +462,7 @@ def featurize(in_file, out_file, model_path, r, uncommon=None):
     word2vec_model = word2vec.Word2Vec.load(model_path)
     if uncommon:
         try:
-            word2vec_model.wv.get_vector[uncommon]
+            word2vec_model.wv.get_vector(uncommon)
         except KeyError:
             raise KeyError('Selected word for uncommon: %s not in vocabulary' % uncommon)
 
